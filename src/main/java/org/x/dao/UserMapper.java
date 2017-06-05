@@ -1,4 +1,11 @@
 package org.x.dao;
 
-public class UserMapper {
+import org.apache.ibatis.annotations.Select;
+import org.x.domain.User;
+
+public interface UserMapper {
+    User findUserById(int id);
+
+    @Select("select count(*) cnt from user")
+    int countAll();
 }
